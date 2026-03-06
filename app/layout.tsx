@@ -6,7 +6,7 @@ import "./globals.css";
 import WhatsappButton from "@/app/components/WhatsappButton";
 import Navbar from "@/app/components/Navbar";
 import Footer from "@/app/components/Footer";
-import LeadPopup from './components/ContactPopup'
+
 import { Toaster } from "react-hot-toast";
 
 
@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} font-sans pt-16`}>
-        <LeadPopup />
+
         {/* Navbar */}
         <Navbar />
 

@@ -24,9 +24,17 @@ export default function LeadPopup({ open, setOpen }: LeadPopupProps) {
     // 15 sec auto popup
     useEffect(() => {
 
+        const popupClosed = localStorage.getItem("popupClosed");
+
+        if (popupClosed) return;
+
         const timer = setTimeout(() => {
-            setIsOpen(true);
-        }, 60000);
+            if (setOpen) {
+                setOpen(true);
+            } else {
+                setInternalOpen(true);
+            }
+        }, 15000);
 
         return () => clearTimeout(timer);
 
@@ -57,7 +65,7 @@ export default function LeadPopup({ open, setOpen }: LeadPopupProps) {
             );
 
             toast.success("Consultation request sent 🚀");
-
+            localStorage.setItem("popupClosed", "true");
             setName("");
             setPhone("");
             setIsOpen(false);
@@ -70,7 +78,15 @@ export default function LeadPopup({ open, setOpen }: LeadPopupProps) {
 
         setLoading(false);
     };
+    const handleClose = () => {
+        localStorage.setItem("popupClosed", "true");
 
+        if (setOpen) {
+            setOpen(false);
+        } else {
+            setInternalOpen(false);
+        }
+    };
 
     if (!isOpen) return null;
 
@@ -81,7 +97,7 @@ export default function LeadPopup({ open, setOpen }: LeadPopupProps) {
 
                 {/* close button */}
                 <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={handleClose}
                     className="absolute right-4 top-4 text-gray-500 hover:text-red-500 transition cursor-pointer"
                 >
                     <X size={22} />

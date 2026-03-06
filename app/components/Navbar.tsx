@@ -5,11 +5,9 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import mainLogo from '@/public/mainlogo.png';
 import { Home, Briefcase, BookOpen, Info, Mail } from "lucide-react";
-interface NavbarProps {
-    onGetStarted?: () => void;
-}
 
-const Navbar = ({ onGetStarted }: NavbarProps) => {
+
+const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     const pathname = usePathname();

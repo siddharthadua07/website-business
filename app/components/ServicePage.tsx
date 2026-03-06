@@ -68,7 +68,7 @@ export default function WebsiteDevelopmentPage() {
                     {/* Stats */}
                     <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {[
-                            { number: '500+', label: 'Projects Delivered' },
+                            { number: '50+', label: 'Projects Delivered' },
                             { number: '98%', label: 'Client Satisfaction' },
                             { number: '24/7', label: 'Support Available' },
                             { number: '100%', label: 'SEO Optimized' },
